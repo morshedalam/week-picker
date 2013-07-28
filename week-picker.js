@@ -330,7 +330,7 @@
         $.fn.weekpicker.defaults = {
             monthNames:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             shortDayNames:["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-            week_start:1,
+            week_start:0,
             months:6
         };
 
