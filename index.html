@@ -2,37 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap Multi Month Week Picker</title>
+    <title>Multi Month Week Picker</title>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link href="../assets/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="week-picker-view.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="span12">
-            <h4>Multi month week picker</h4>
+    <h2><a href="https://github.com/morshedalam/week-picker">Multi month week picker</a></h2>
 
-            <div class="input">
-                <div class="inline-inputs">
-                    <input data-weekpicker="weekpicker"
-                           data-months="6"
-                           data-week_start="6"
-                           type="text" value="05/06/13-05/12/13"/>
-                </div>
-            </div>
+    <p>A multi month week picker calendar by following Stefan Petre's bootstrap-datepicker;</p>
+    <a href="https://github.com/morshedalam/week-picker/zipball/master" class="btn btn-mini">Download</a>
+    <br/><br/>
+
+
+    <h4>Example</h4>
+
+    <p>Attached to a field with default options.</p>
+
+    <div class="well">
+        <input data-weekpicker="weekpicker"/>
+        <xmp>Markup:
+<input data-weekpicker="weekpicker"/></xmp>
+    </div>
+
+    <p>Attached to a field with specifying number of months via data tag.</p>
+
+    <div class="well">
+        <input data-weekpicker="weekpicker" data-months="5"/>
+        <xmp>Markup:
+<input data-weekpicker="weekpicker" data-months="5"/></xmp>
+    </div>
+
+    <p>Attached to a field with specifying start of week via data tag.</p>
+
+    <div class="well">
+        <input data-weekpicker="weekpicker" data-week_start="1"/>
+        <xmp>Markup:
+<input data-weekpicker="weekpicker" data-week_start="1"/></xmp>
+    </div>
+
+    <p>As component.</p>
+
+    <div class="well">
+        <div class="input-append date" id="dp3" data-date="12-02-2012">
+            <input type="text" readonly="" id="week_range"/>
+        <span class="add-on" data-weekpicker="weekpicker"
+              data-target="#week_range"><i class="icon-th"></i></span>
         </div>
+        <xmp>
+Markup:
+<input type="text" readonly="" id="week_range"/>
+<span class="add-on" data-weekpicker="weekpicker" data-target="#week_range">
+    <i class="icon-th"></i>
+</span></xmp>
     </div>
 </div>
 
-<script src="../assets/javascripts/jquery-1.7.min.js"></script>
-<script src="week-picker.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="week-picker.js"></script>
 </body>
 </html>

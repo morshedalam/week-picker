@@ -1,10 +1,4 @@
-/*!
- * WeekPicker
- *
- * Copyright 2013, Morshed Alam
- * Date: Sun Jul 28
- */
-!function ($) {
+(function () {
     var selector = '[data-weekpicker]', all = [];
 
     function clearWeekPickers(except) {
@@ -77,18 +71,21 @@
         },
 
         setParams:function () {
-            var months = parseInt(this.$el.attr('data-months'));
-            if (months)
-                this.months = months;
+            var data;
 
-            var week_start = parseInt(this.$el.attr('data-week_start'));
-            if (week_start)
-                this.week_start = week_start;
+            data = this.$el.attr('data-target');
+            this.$target = data ? $(data) : this.$el;
+
+            data = parseInt(this.$el.attr('data-months'));
+            this.months = data ? data : this.months;
+
+            data = parseInt(this.$el.attr('data-week_start'));
+            this.week_start = data ? data : this.week_start;
         },
 
         selectWeek:function (week) {
             if (typeof(week) == "undefined") {
-                week = this.$el.val();
+                week = this.$target.val();
             }
 
             this.$months.empty();
@@ -213,6 +210,7 @@
         },
 
         update:function (s) {
+            this.$target.val(s);
             this.$el.val(s).change();
         },
 
@@ -281,7 +279,7 @@
 
         nav:function (months) {
             var $subnav = $('<div>' +
-                '<span class="prev button">&larr; Previous </span> ' +
+                '<span class="prev button">&larr; Previous </span> | ' +
                 ' <span class="next button">Next &rarr;</span>' +
                 '</div>');
 
@@ -315,24 +313,26 @@
 
     /* WEEK PICKER DEFINITION
      * ============================ */
+    $(document).ready(function(){
+        $.fn.weekpicker = function (options) {
+            return this.each(function () {
+                new WeekPicker(this, options);
+            });
+        };
 
-    $.fn.weekpicker = function (options) {
-        return this.each(function () {
-            new WeekPicker(this, options);
+        $(function () {
+            $(selector).weekpicker();
+            $('html').click(clearWeekPickers);
         });
-    };
 
-    $(function () {
-        $(selector).weekpicker();
-        $('html').click(clearWeekPickers);
+        $.fn.weekpicker.WeekPicker = WeekPicker;
+
+        $.fn.weekpicker.defaults = {
+            monthNames:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            shortDayNames:["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+            week_start:1,
+            months:6
+        };
+
     });
-
-    $.fn.weekpicker.WeekPicker = WeekPicker;
-
-    $.fn.weekpicker.defaults = {
-        monthNames:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        shortDayNames:["Su", "M", "T", "W", "Th", "F", "Sa"],
-        week_start:1,
-        months:6
-    };
-}(window.jQuery || window.ender);
+}());

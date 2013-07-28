@@ -17,10 +17,12 @@
     font-size: 10px;
 }
 
+.weekpicker .head td, .weekpicker td.span0, .weekpicker .calendar .span1 {
+    color: #006DCC;
+}
+
 .weekpicker .week-nav {
     font-weight: bold;
-    background-color: #006DCC;
-    color: #ffffff;
     text-align: center;
     padding: 4px 0;
     font-size: 130%;
@@ -42,10 +44,6 @@
 
 .weekpicker .calendar td.month-col {
     vertical-align: top;
-}
-
-.weekpicker .head td {
-    color: #006DCC;
 }
 
 .weekpicker .week .box0, .weekpicker .week .box1 {
@@ -72,19 +70,23 @@
     border-top: 1px solid #E7E7E7;
     border-left: 1px solid #E7E7E7;
     border-bottom: 1px solid #E7E7E7;
-    color: #006DCC;
 }
 
 .weekpicker .calendar .box0, .weekpicker .calendar .box1 {
     border: 1px solid #E7E7E7;
 }
 
-.weekpicker .selected .box0, .weekpicker .selected .box1 {
+.weekpicker .highlighted .box0, .weekpicker .highlighted .box1 {
+    background-image: -webkit-linear-gradient(#D2D2D2, #c0c0c0, #c0c0c0);
     background-color: #D2D2D2;
     color: #7F7E7C;
 }
 
-.weekpicker .highlighted .box0, .weekpicker .highlighted .box1 {
+.weekpicker .week-nav,
+.weekpicker .selected .box0,
+.weekpicker .selected .box1 {
     background-color: #006DCC;
     color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-image: -webkit-linear-gradient(top, #08C, #04C);
 }
