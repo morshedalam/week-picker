@@ -110,7 +110,7 @@
                 thisDay, prevMonth = -1, weekEnd, tmp,
                 row, col, label, firstDay, box_class;
 
-            for (var c = 0; c < dates.length; c++) {
+            for (var c = 0; c < (this.months <= 1 ? 1 : 2); c++) {
                 var m = -1, w = 0;
 
                 dates[c][2] = this.daysBetween(dates[c][0], dates[c][1]);
@@ -313,7 +313,7 @@
 
     /* WEEK PICKER DEFINITION
      * ============================ */
-    $(document).ready(function(){
+    $(document).ready(function () {
         $.fn.weekpicker = function (options) {
             return this.each(function () {
                 new WeekPicker(this, options);
