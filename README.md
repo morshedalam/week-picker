@@ -38,7 +38,6 @@ Specifying target field using icon:
  * Default week start: 0 [0 - Sunday to 6 - Saturday]
  * Default Number of Weeks: 6
  * Target field: self [Can parameterize using data-target="#field_id"]
-```
 
 ## TO DO
  * Date format support
