@@ -90,11 +90,12 @@
 
             this.$months.empty();
             this.renderView();
+            var me = this;
 
             $('.week', this.$months).click($.proxy(function (e) {
                 this.update($(e.target).parent().attr("date"));
             }, this)).hover(function (e) {
-                    $('.highlighted', this.$months).removeClass('highlighted');
+                    $('.highlighted', me.$months).removeClass('highlighted');
                     $(this).addClass('highlighted');
                 });
 
